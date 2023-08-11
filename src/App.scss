@@ -3,7 +3,7 @@
     --darker-blue: hsl(207, 26%, 17%);
     --darkest-blue: hsl(200, 15%, 8%);
     --light: hsl(0, 0%, 52%);
-    --lighter: hsl(0, 0%, 98%);
+    --lighter: hsl(218, 26%, 83%);
     --lightest: hsl(0, 0%, 100%);
     --font-family: 'Nunito Sans', sans-serif;
     --bd-radius: 5px;
@@ -15,6 +15,17 @@
     flex-direction: column;
     align-items: center;
     min-height: 100svh;
+    transition: all ease 0.3s;
+
+    &.light {
+        background-color: var(--bg);
+        color: var(--darker-blue);
+    }
+
+    &.dark {
+        background-color: var(--dark-blue);
+        color: var(--lighter);
+    }
 
     .header {
         display: flex;
@@ -25,7 +36,8 @@
         position: sticky;
         top: 0;
         left: 0;
-        background-color: var(--lightest);
+        background-color: inherit;
+        box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.619);
         z-index: 100;
         padding: 0 1rem;
 
@@ -43,6 +55,7 @@
             display: flex;
             align-items: center;
             gap: 5px;
+            cursor: pointer;
 
             p {
                 font-size: 0.8rem;
@@ -67,6 +80,7 @@
                 width: 50%;
                 height: 40px;
                 border-radius: var(--bd-radius);
+                box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.538);
 
                 label {
                     position: absolute;
@@ -81,6 +95,8 @@
                     width: 100%;
                     padding: 0px 50px;
                     border-radius: var(--bd-radius);
+                    color: inherit;
+                    background-color: inherit;
 
                     @media (max-width:767px) {
                         padding: 0 5px 0 50px;
@@ -89,17 +105,26 @@
             }
 
             .select {
+                border-radius: var(--bd-radius);
                 width: 30%;
                 height: 40px;
+                box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.538);
 
                 select {
+                    cursor: pointer;
+                    background-color: inherit;
+                    color: inherit;
                     outline: none;
                     width: 100%;
                     height: 100%;
                     border-radius: var(--bd-radius);
                     border: none;
-                    
+                    padding: 0 5px;
+
                     option {
+                        background: none;
+                        background-color: none;
+                        color: inherit;
                         outline: none;
                         border: none;
                         box-shadow: none;
@@ -114,15 +139,17 @@
             justify-content: space-evenly;
             gap: 1rem;
             row-gap: 3rem;
+            margin-bottom: 50px;
 
             .card {
+                cursor: pointer;
                 width: 200px;
                 height: 250px;
                 border-radius: var(--bd-radius);
-                background-color: var(--lightest);
+                box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.383);
 
                 @media (max-width: 471px) {
-                    width: 150px;
+                    width: auto;
                     height: auto;
                 }
 
@@ -140,6 +167,8 @@
                     justify-content: center;
                     align-items: flex-start;
                     padding: 20px;
+                    color: inherit;
+                    background-color: inherit;
 
                     @media (max-width: 471px) {
                         padding: 10px;
