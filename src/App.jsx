@@ -130,19 +130,19 @@ function App() {
                 <div onClick={() => singleItem(el)} className="card" key={i}>
                   <img src={el.flags.png} alt={`Image of ${el.name}`} />
                   <div className="text">
-                    <h3>{el.name}</h3>
-                    <h4>
+                    <h2>{el.name}</h2>
+                    <h3>
                       {" "}
                       Population: <span>{el.population}</span>
-                    </h4>
-                    <h4>
+                    </h3>
+                    <h3>
                       {" "}
                       Region: <span>{el.region}</span>
-                    </h4>
-                    <h4>
+                    </h3>
+                    <h3>
                       {" "}
                       Capital: <span>{el.capital}</span>
-                    </h4>
+                    </h3>
                   </div>
                 </div>
               );
