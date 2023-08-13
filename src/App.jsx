@@ -128,7 +128,7 @@ function App() {
             {result.map((el, i) => {
               return (
                 <div onClick={() => singleItem(el)} className="card" key={i}>
-                  <img src={el.flags.png} />
+                  <img src={el.flags.png} alt={`Image of ${el.name}`} />
                   <div className="text">
                     <h3>{el.name}</h3>
                     <h4>
