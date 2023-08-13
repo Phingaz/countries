@@ -54,7 +54,7 @@ function App() {
     let filterResult = [];
     let inputResult = [];
 
-    if (filter === "") {
+    if (filter === "All") {
       data.forEach((el) => {
         if (el.name.toLowerCase().includes(input)) {
           inputResult.push(el);
@@ -114,7 +114,7 @@ function App() {
             </div>
             <div className="select">
               <select value={filter} onChange={handleChange}>
-                <option value="">Filter by region</option>
+                <option value="All">Filter by region</option>
                 <option value="Asia">Asia</option>
                 <option value="Americas">Americas</option>
                 <option value="Africa">Africa</option>
