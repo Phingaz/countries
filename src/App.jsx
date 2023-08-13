@@ -9,7 +9,7 @@ import { CountryInfo } from "./CountryInfo";
 function App() {
   const [isLight, setIsLight] = useState(true);
   const [input, setInput] = useState("");
-  const [filter, setFilter] = useState("");
+  const [filter, setFilter] = useState("All");
   const [clicked, setClicked] = useState(false);
   const [single, setSingle] = useState({
     data: {
