@@ -3,7 +3,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import data from "./data.json";
 import NightlightRoundIcon from "@mui/icons-material/NightlightRound";
 import WbSunnyOutlinedIcon from "@mui/icons-material/WbSunnyOutlined";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { CountryInfo } from "./CountryInfo";
 
 function App() {
@@ -29,7 +29,6 @@ function App() {
     },
   });
   const [result, setResult] = useState([]);
-  let countries = [];
 
   const handleClick = () => {
     setClicked((p) => !p);
@@ -51,17 +50,41 @@ function App() {
     }));
   };
 
-  const handleResult = () => {
-    const empty = input.trim().length === 0;
-    if (empty) return;
-    data.map((el) => {
-      if (el.name.toLowerCase().includes(input.toLowerCase())) {
-        result.push(el);
+  useEffect(() => {
+    let filterResult = [];
+    let inputResult = [];
+
+    if (filter === "") {
+      data.forEach((el) => {
+        if (el.name.toLowerCase().includes(input)) {
+          inputResult.push(el);
+        }
+      });
+      setResult(inputResult);
+      return;
+    }
+
+    data.forEach((el) => {
+      if (el.region === filter) {
+        filterResult.push(el);
       }
     });
-  };
 
-  handleResult();
+    setResult(filterResult);
+
+    // const empty = input.trim().length === 0;
+    // if (empty) {
+    //   setResult(filterResult);
+    //   return;
+    // }
+
+    // result.forEach((el) => {
+    //   if (el.name.toLowerCase().includes(input)) {
+    //     inputResult.push(el);
+    //   }
+    // });
+    // setResult(inputResult);
+  }, [input, filter]);
 
   return (
     <div className={`App ${isLight ? "light" : "dark"}`}>
@@ -102,7 +125,7 @@ function App() {
           </div>
 
           <main className="main">
-            {data.map((el, i) => {
+            {result.map((el, i) => {
               return (
                 <div onClick={() => singleItem(el)} className="card" key={i}>
                   <img src={el.flags.png} />
